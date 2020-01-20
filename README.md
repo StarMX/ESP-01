@@ -1,10 +1,35 @@
-# ESP-01 
+# ESP-01 模块
+
+使用方式 重命名 config.h.example 为 config.h 修改内部代码 
+
+以下两个模块如果使用那个则注释掉外的模块 例如要使用 RBG_LED
+```
+// #define Esp01_Relay
+#define Esp01_RGB_LED
+#define Esp01_Led_Count 24 //这里的24修改为你灯带LED的数量
+
+```
+要使用Relay模块则注释 
+```
+#define Esp01_Relay
+// #define Esp01_RGB_LED
+#define Esp01_Led_Count 24
+```
+
+***其他*** 
+
+app_name ap_password 为入网使用 可不修改 连入AP后自动进入配网页面
+
+mqtt信息按需要修改
+
 
 > RGB LED
 
-![](/Doc/Images/RGB_LED.jpg )
+示例图片
 
-Home Assistant
+![image](/Doc/Images/RGB_LED.jpg )
+
+### Home Assistant 配置文件
 ```
 light:
   - platform: mqtt
@@ -83,4 +108,5 @@ light:
 
 > Relay
 
-![](/Doc/Images/Relay.jpg)
+示例图片
+![image](/Doc/Images/Relay.jpg)
